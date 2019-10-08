@@ -1,5 +1,6 @@
 import ko from 'knockout';
 import * as SysGlobalObservables from 'app/sys-global-observables';
+import { sysassetsBaseFsUrl } from 'app/config';
 
 class AutoIncluder {
     constructor() {
@@ -20,8 +21,8 @@ class AutoIncluder {
     createMapping() {
         const self = this;
         const includeMap = {};
-        const syscalls = 'https://cs-education.github.io/sysassets/man_pages/syscall_metadata.min.json';
-        const libcalls = 'https://cs-education.github.io/sysassets/man_pages/headers.min.json';
+        const syscalls = sysassetsBaseFsUrl + 'man_pages/syscall_metadata.min.json';
+        const libcalls = sysassetsBaseFsUrl + 'man_pages/headers.min.json';
         $.getJSON(syscalls, (data) => {
             data.forEach((element) => {
                 element.functions.forEach((func) => {

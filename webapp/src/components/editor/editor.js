@@ -6,6 +6,7 @@ import 'bloodhound';
 import TokenHighlighter from 'components/editor/token-highlighter';
 import AutoIncluder from 'components/editor/auto-include';
 import * as SysGlobalObservables from 'app/sys-global-observables';
+import { sysassetsBaseFsUrl } from 'app/config';
 
 class Editor {
     constructor(params) {
@@ -202,7 +203,7 @@ class Editor {
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 10,
             prefetch: {
-                url: 'https://cs-education.github.io/sysassets/man_pages/sys_man_page_index.min.json'
+                url: sysassetsBaseFsUrl + 'man_pages/sys_man_page_index.min.json'
             }
         });
         manPageTokens.initialize();
